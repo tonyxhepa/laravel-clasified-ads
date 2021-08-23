@@ -1,7 +1,7 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Categories') }}
+            {{ __('Countries') }}
         </h2>
     </x-slot>
 
@@ -14,9 +14,9 @@
             <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
                 <div class="py-2 align-middle inline-block w-full sm:px-6 lg:px-8">
                     <div class="flex justify-end">
-                        <a href="{{ route('categories.create') }}"
+                        <a href="{{ route('countries.create') }}"
                             class="py-2 px-4 m-2 bg-green-500 hover:bg-green-300 text-gray-50 rounded-md">New
-                            Category</a>
+                            Country</a>
                     </div>
                 </div>
             </div>
@@ -36,7 +36,7 @@
                                     </th>
                                     <th scope="col"
                                         class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                        Image
+                                        Country Code
                                     </th>
                                     <th scope="col" class="relative px-6 py-3">
                                         <span class="sr-only">Edit</span>
@@ -44,33 +44,32 @@
                                 </tr>
                             </thead>
                             <tbody class="bg-white divide-y divide-gray-200">
-                                @foreach ($categories as $category)
+                                @foreach ($countries as $country)
                                     <tr>
                                         <td class="px-6 py-4 whitespace-nowrap">
                                             <div class="flex items-center">
-                                                {{ $category->name }}
+                                                {{ $country->name }}
                                             </div>
                                         </td>
                                         <td class="px-6 py-4 whitespace-nowrap">
                                             <div class="flex items-center">
-                                                {{ $category->slug }}
+                                                {{ $country->slug }}
                                             </div>
                                         </td>
                                         <td class="px-6 py-4 whitespace-nowrap">
                                             <div class="flex items-center">
-                                                <img class="h-12 w-12 rounded-md"
-                                                    src="{{ Storage::url($category->image) }}">
+                                                {{ $country->country_code }}
                                             </div>
                                         </td>
                                         <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-                                            <a href="{{ route('categories.edit', $category->id) }}"
+                                            <a href="{{ route('countries.edit', $country->id) }}"
                                                 class="text-indigo-600 hover:text-indigo-900">Edit</a>
                                             <form method="POST"
-                                                action="{{ route('categories.destroy', $category->id) }}">
+                                                action="{{ route('countries.destroy', $country->id) }}">
                                                 @csrf
                                                 @method('DELETE')
                                                 <a class="text-red-500 hover:text-red-900"
-                                                    href="{{ route('categories.destroy', $category->id) }}" onclick="event.preventDefault();
+                                                    href="{{ route('countries.destroy', $country->id) }}" onclick="event.preventDefault();
                                                 this.closest('form').submit();">
                                                     Delete
                                                 </a>
@@ -81,7 +80,7 @@
                             </tbody>
                         </table>
                         <div class="p-2 m-2">
-                            {{ $categories->links() }}
+                            {{ $countries->links() }}
                         </div>
                     </div>
                 </div>
