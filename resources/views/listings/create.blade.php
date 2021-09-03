@@ -94,54 +94,6 @@
                                             @enderror
                                         </div>
                                     </div>
-                                    <div class="col-span-6 md:col-span-2">
-                                        <label for="country_id" class="block text-sm font-medium text-gray-700">
-                                            Country
-                                        </label>
-                                        <div class="mt-1 flex rounded-md shadow-sm">
-                                            <select name="country_id"
-                                                class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
-                                                @foreach (App\Models\Country::all() as $country)
-                                                    <option value="{{ $country->id }}">
-                                                        {{ $country->name }}</option>
-                                                @endforeach
-                                            </select>
-                                            @error('country_id') <span class="error">{{ $message }}</span>
-                                            @enderror
-                                        </div>
-                                    </div>
-                                    <div class="col-span-6 md:col-span-2">
-                                        <label for="state_id" class="block text-sm font-medium text-gray-700">
-                                            State
-                                        </label>
-                                        <div class="mt-1 flex rounded-md shadow-sm">
-                                            <select name="state_id"
-                                                class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
-                                                @foreach (App\Models\State::all() as $category)
-                                                    <option value="{{ $category->id }}">
-                                                        {{ $category->name }}</option>
-                                                @endforeach
-                                            </select>
-                                            @error('state_id') <span class="error">{{ $message }}</span>
-                                            @enderror
-                                        </div>
-                                    </div>
-                                    <div class="col-span-6 md:col-span-2">
-                                        <label for="city_id" class="block text-sm font-medium text-gray-700">
-                                            City
-                                        </label>
-                                        <div class="mt-1 flex rounded-md shadow-sm">
-                                            <select name="city_id"
-                                                class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
-                                                @foreach (App\Models\City::all() as $category)
-                                                    <option value="{{ $category->id }}">
-                                                        {{ $category->name }}</option>
-                                                @endforeach
-                                            </select>
-                                            @error('city_id') <span class="error">{{ $message }}</span>
-                                            @enderror
-                                        </div>
-                                    </div>
                                     <div class="col-span-6 md:col-span-3">
                                         <label for="phone_number" class="block text-sm font-medium text-gray-700">
                                             Phone Number
@@ -170,50 +122,8 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-span-6 md:col-span-3">
-                                    <label class="block text-sm font-medium text-gray-700">
-                                        Featured Image
-                                    </label>
-                                    <div class="mt-1 flex items-center">
-                                        <input type="file" id="feature_image" name="feature_image"
-                                            class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" />
-                                        @error('feature_image') <span class="error">{{ $message }}</span>
-                                        @enderror
-                                    </div>
-                                </div>
-                                <div class="col-span-6 md:col-span-3">
-                                    <label class="block text-sm font-medium text-gray-700">
-                                        FImage One
-                                    </label>
-                                    <div class="mt-1 flex items-center">
-                                        <input type="file" id="image_one" name="image_one"
-                                            class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" />
-                                        @error('image_one') <span class="error">{{ $message }}</span>
-                                        @enderror
-                                    </div>
-                                </div>
-                                <div class="col-span-6 md:col-span-3">
-                                    <label class="block text-sm font-medium text-gray-700">
-                                        Image Two
-                                    </label>
-                                    <div class="mt-1 flex items-center">
-                                        <input type="file" id="image_two" name="image_two"
-                                            class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" />
-                                        @error('image_two') <span class="error">{{ $message }}</span>
-                                        @enderror
-                                    </div>
-                                </div>
-                                <div class="col-span-6 md:col-span-3">
-                                    <label class="block text-sm font-medium text-gray-700">
-                                        Image Three
-                                    </label>
-                                    <div class="mt-1 flex items-center">
-                                        <input type="file" id="image_three" name="image_three"
-                                            class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" />
-                                        @error('image_three') <span class="error">{{ $message }}</span>
-                                        @enderror
-                                    </div>
-                                </div>
+                                @livewire('dependet-country')
+                                @livewire('image-preview')
                                 <div class="px-4 py-3 bg-gray-50 sm:px-6">
                                     <button type="submit"
                                         class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
