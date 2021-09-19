@@ -37,7 +37,11 @@ class StoreListingRequest extends FormRequest
         'state_id' => 'required',
         'city_id' => 'required',
         'phone_number' => 'required',
-        'is_published' => 'required'
+        'is_published' => 'required',
+        'featured_image' => 'image|nullable',
+        'image_one' => 'image|required',
+        'image_two' => 'image|required',
+        'image_three' => 'image|required',
         ];
     }
 }
