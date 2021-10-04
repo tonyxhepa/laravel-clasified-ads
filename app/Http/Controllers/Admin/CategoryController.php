@@ -39,7 +39,6 @@ class CategoryController extends Controller
      */
     public function store(StoreCategoryRequest $request)
     {
-        dd($request);
         if ($request->hasFile('image')) {
             $path = $request->file('image')->store('public/categories');
 

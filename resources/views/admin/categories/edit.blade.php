@@ -1,4 +1,4 @@
-<x-app-layout>
+<x-admin-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
             {{ $category->name }}
@@ -49,7 +49,8 @@
                                                 Image
                                             </label>
                                             <div class="w-full m-2 p-2">
-                                                <img class="h-32 w-32" src="{{ Storage::url($category->image) }}">
+                                                <img class="h-32 w-32"
+                                                    src="{{ Storage::url($category->image) }}">
                                             </div>
                                             <div class="mt-1 flex items-center">
                                                 <input type="file" id="image" name="image"
@@ -70,4 +71,4 @@
             </div>
         </div>
     </div>
-</x-app-layout>
+    </x-app-layout>

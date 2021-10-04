@@ -51,6 +51,32 @@
                 </x-app-link>
                 <x-app-link href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">Dashboard
                 </x-app-link>
+                @role('admin')
+                <x-app-link href="{{ route('admin.categories.index') }}"
+                    :active="request()->routeIs('admin.categories.index')">
+                    Categories
+                </x-app-link>
+                <x-app-link href="{{ route('admin.subcategories.index') }}"
+                    :active="request()->routeIs('admin.subcategories.index')">
+                    Sub Categories
+                </x-app-link>
+                <x-app-link href="{{ route('admin.childcategories.index') }}"
+                    :active="request()->routeIs('admin.childcategories.index')">
+                    Child Categories
+                </x-app-link>
+                <x-app-link href="{{ route('admin.countries.index') }}"
+                    :active="request()->routeIs('admin.countries.index')">
+                    Countries
+                </x-app-link>
+                <x-app-link href="{{ route('admin.states.index') }}"
+                    :active="request()->routeIs('admin.states.index')">
+                    States
+                </x-app-link>
+                <x-app-link href="{{ route('admin.cities.index') }}"
+                    :active="request()->routeIs('admin.cities.index')">
+                    Cities
+                </x-app-link>
+                @endrole
                 @auth
                     <div @click.away="open = false" class="relative" x-data="{ open: false }">
                         <button @click="open = !open"
@@ -79,7 +105,7 @@
 
                                     <a class="block px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline"
                                         href="{{ route('logout') }}" onclick="event.preventDefault();
-                                                                this.closest('form').submit();">
+                                                                            this.closest('form').submit();">
                                         Logout
                                     </a>
                                 </form>

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StoreListingRequest;
 use App\Models\Listing;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 
 class ListingController extends Controller
@@ -67,7 +68,7 @@ class ListingController extends Controller
             'image_three' => $image_three,
         ]);
 
-        return redirect()->route('listings.index');
+        return redirect()->route('listings.index')->with('message', 'Listing created successfully');
     }
 
     /**
@@ -134,6 +135,8 @@ class ListingController extends Controller
             'image_two' => $image_two,
             'image_three' => $image_three,
         ]);
+
+        return redirect()->route('listings.index')->with('message', 'Listing updated successfully');
     }
 
     /**
@@ -144,6 +147,13 @@ class ListingController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $listing = Listing::findOrFail($id);
+
+        Storage::delete($listing->featured_image);
+        Storage::delete($listing->image_one);
+        Storage::delete($listing->image_two);
+        Storage::delete($listing->image_three);
+        $listing->delete();
+        return redirect()->route('listings.index')->with('message', 'Listing deleted successfully');
     }
 }

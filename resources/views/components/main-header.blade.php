@@ -9,16 +9,14 @@
             <span class="ml-3 text-xl">Classified</span>
         </a>
         <nav class="md:ml-auto flex flex-wrap items-center text-base justify-center">
-            <a class="mr-5 hover:text-gray-900">Home</a>
-            <a class="mr-5 hover:text-gray-900">All Ads</a>
-            <a class="mr-5 hover:text-gray-900">Stores</a>
-            <a class="mr-5 hover:text-gray-900">Contact</a>
+            <a href="/" class="mr-5 hover:text-gray-900">Home</a>
+            <a href="{{ route('all-listings') }}" class="mr-5 hover:text-gray-900">All Ads</a>
             @guest
                 <a href="{{ route('login') }}" class="mr-5 hover:text-gray-900">login</a>
                 <a href="{{ route('register') }}" class="mr-5 hover:text-gray-900">Register</a>
             @endguest
             @auth
-                <a class="mr-5 hover:text-gray-900">{{ auth()->user()->name }}</a>
+                <a href="{{ route('dashboard') }}" class="mr-5 hover:text-gray-900">{{ auth()->user()->name }}</a>
             @endauth
         </nav>
         <button

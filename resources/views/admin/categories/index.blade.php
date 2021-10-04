@@ -1,4 +1,4 @@
-<x-app-layout>
+<x-admin-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
             {{ __('Categories') }}
@@ -14,7 +14,7 @@
             <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
                 <div class="py-2 align-middle inline-block w-full sm:px-6 lg:px-8">
                     <div class="flex justify-end">
-                        <a href="{{ route('categories.create') }}"
+                        <a href="{{ route('admin.categories.create') }}"
                             class="py-2 px-4 m-2 bg-green-500 hover:bg-green-300 text-gray-50 rounded-md">New
                             Category</a>
                     </div>
@@ -63,14 +63,15 @@
                                             </div>
                                         </td>
                                         <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-                                            <a href="{{ route('categories.edit', $category->id) }}"
+                                            <a href="{{ route('admin.categories.edit', $category->id) }}"
                                                 class="text-indigo-600 hover:text-indigo-900">Edit</a>
                                             <form method="POST"
-                                                action="{{ route('categories.destroy', $category->id) }}">
+                                                action="{{ route('admin.categories.destroy', $category->id) }}">
                                                 @csrf
                                                 @method('DELETE')
                                                 <a class="text-red-500 hover:text-red-900"
-                                                    href="{{ route('categories.destroy', $category->id) }}" onclick="event.preventDefault();
+                                                    href="{{ route('admin.categories.destroy', $category->id) }}"
+                                                    onclick="event.preventDefault();
                                                 this.closest('form').submit();">
                                                     Delete
                                                 </a>
@@ -88,4 +89,4 @@
             </div>
         </div>
     </div>
-</x-app-layout>
+</x-admin-layout>
