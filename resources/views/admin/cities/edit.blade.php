@@ -1,4 +1,4 @@
-<x-app-layout>
+<x-admin-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
             {{ __('Edit City') }}
@@ -11,7 +11,7 @@
             <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
                 <div class="py-2 align-middle inline-block w-full sm:px-6 lg:px-8">
                     <div class="flex justify-start">
-                        <a href="{{ route('cities.index') }}"
+                        <a href="{{ route('admin.cities.index') }}"
                             class="py-2 px-4 m-2 bg-green-500 hover:bg-green-300 text-gray-50 rounded-md">Back</a>
                     </div>
                 </div>
@@ -25,7 +25,7 @@
                             </div>
                         </div>
                         <div class="mt-5 md:mt-0 md:col-span-2">
-                            <form action="{{ route('cities.update', $city->id) }}" method="POST">
+                            <form action="{{ route('admin.cities.update', $city->id) }}" method="POST">
                                 @csrf
                                 @method('PUT')
                                 <div class="shadow sm:rounded-md sm:overflow-hidden">
@@ -39,7 +39,8 @@
                                                     <input type="text" name="name" id="name"
                                                         class="focus:ring-indigo-500 focus:border-indigo-500 flex-1 block w-full rounded-none rounded-r-md sm:text-sm border-gray-300"
                                                         value="{{ $city->name }}">
-                                                    @error('name') <span class="error">{{ $message }}</span>
+                                                    @error('name') <span
+                                                            class="error">{{ $message }}</span>
                                                     @enderror
                                                 </div>
                                             </div>
@@ -57,7 +58,8 @@
                                                                 {{ $state->name }}</option>
                                                         @endforeach
                                                     </select>
-                                                    @error('state_id') <span class="error">{{ $message }}</span>
+                                                    @error('state_id') <span
+                                                            class="error">{{ $message }}</span>
                                                     @enderror
                                                 </div>
                                             </div>
@@ -76,4 +78,4 @@
             </div>
         </div>
     </div>
-</x-app-layout>
+    </x-app-layout>

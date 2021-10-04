@@ -46,8 +46,8 @@
                 <x-app-link class="bg-green-500 hover:bg-green-600" href="{{ route('listings.create') }}"
                     :active="request()->routeIs('listings.create')">New Listing
                 </x-app-link>
-                <x-app-link class="bg-green-500 hover:bg-green-600" href="{{ route('listings.index') }}"
-                    :active="request()->routeIs('listings.index')">My Listings
+                <x-app-link class="bg-green-500 hover:bg-green-600" href="{{ route('admin.listings.index') }}"
+                    :active="request()->routeIs('admin.listings.index')">All Listings
                 </x-app-link>
                 <x-app-link href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">Dashboard
                 </x-app-link>
@@ -105,7 +105,7 @@
 
                                     <a class="block px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline"
                                         href="{{ route('logout') }}" onclick="event.preventDefault();
-                                                                            this.closest('form').submit();">
+                                                                                this.closest('form').submit();">
                                         Logout
                                     </a>
                                 </form>

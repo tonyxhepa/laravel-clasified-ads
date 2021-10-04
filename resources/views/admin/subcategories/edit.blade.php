@@ -1,4 +1,4 @@
-<x-app-layout>
+<x-admin-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
             {{ __('Edit Sub Category') }}
@@ -11,7 +11,7 @@
             <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
                 <div class="py-2 align-middle inline-block w-full sm:px-6 lg:px-8">
                     <div class="flex justify-start">
-                        <a href="{{ route('subcategories.index') }}"
+                        <a href="{{ route('admin.subcategories.index') }}"
                             class="py-2 px-4 m-2 bg-green-500 hover:bg-green-300 text-gray-50 rounded-md">Back</a>
                     </div>
                 </div>
@@ -25,7 +25,7 @@
                             </div>
                         </div>
                         <div class="mt-5 md:mt-0 md:col-span-2">
-                            <form action="{{ route('subcategories.update', $sub_category->id) }}" method="POST"
+                            <form action="{{ route('admin.subcategories.update', $sub_category->id) }}" method="POST"
                                 enctype="multipart/form-data">
                                 @csrf
                                 @method('PUT')
@@ -72,7 +72,8 @@
                                                 Image
                                             </label>
                                             <div class="w-full m-2 p-2">
-                                                <img class="h-32 w-32" src="{{ Storage::url($sub_category->image) }}">
+                                                <img class="h-32 w-32"
+                                                    src="{{ Storage::url($sub_category->image) }}">
                                             </div>
                                             <div class="mt-1 flex items-center">
                                                 <input type="file" id="image" name="image"
@@ -96,4 +97,4 @@
             </div>
         </div>
     </div>
-</x-app-layout>
+    </x-app-layout>
