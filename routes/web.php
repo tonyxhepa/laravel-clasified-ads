@@ -33,7 +33,7 @@ Route::get('/all-listings', [FrontendListingController::class, 'index'])
     ->name('all-listings');
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
-    //auth()->user()->assignRole('admin');
+    // auth()->user()->assignRole('admin');
     return view('dashboard');
 })->name('dashboard');
 
