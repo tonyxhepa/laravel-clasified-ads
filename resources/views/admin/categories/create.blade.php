@@ -11,7 +11,7 @@
             <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
                 <div class="py-2 align-middle inline-block w-full sm:px-6 lg:px-8">
                     <div class="flex justify-start">
-                        <a href="{{ route('categories.index') }}"
+                        <a href="{{ route('admin.categories.index') }}"
                             class="py-2 px-4 m-2 bg-green-500 hover:bg-green-300 text-gray-50 rounded-md">Back</a>
                     </div>
                 </div>
@@ -25,7 +25,7 @@
                             </div>
                         </div>
                         <div class="mt-5 md:mt-0 md:col-span-2">
-                            <form action="{{ route('categories.store') }}" method="POST"
+                            <form action="{{ route('admin.categories.store') }}" method="POST"
                                 enctype="multipart/form-data">
                                 @csrf
                                 <div class="shadow sm:rounded-md sm:overflow-hidden">

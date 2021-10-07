@@ -39,20 +39,24 @@ class ChildCategoryController extends Controller
      */
     public function store(Request $request)
     {
+        $request->validate([
+            'name' => 'required',
+            'sub_category_id' => 'required',
+            'image' =>  'required',
+        ]);
+
         if ($request->hasFile('image')) {
             $path = $request->file('image')->store('public/childcategories');
-
-            ChildCategory::create([
-                'name' => $request->name,
-                'slug' => Str::slug($request->name),
-                'sub_category_id' => $request->sub_category_id,
-                'image' => $path
-            ]);
-
-            return redirect()->route('childcategories.index')->with('message', 'Sub Category created.');
-            ;
         }
-        dd('no image');
+
+        ChildCategory::create([
+            'name' => $request->name,
+            'slug' => Str::slug($request->name),
+            'sub_category_id' => $request->sub_category_id,
+            'image' => $path,
+        ]);
+
+        return redirect()->route('admin.childcategories.index')->with('message', 'Sub Category created.');;
     }
 
     /**
@@ -87,16 +91,15 @@ class ChildCategoryController extends Controller
                 'category_id' => $request->category_id,
                 'image' => $path
             ]);
-            return redirect()->route('childcategories.index')->with('message', 'Sub category updated with image.');
-            ;
+            return redirect()->route('admin.childcategories.index')->with('message', 'Sub category updated with image.');
+            
         } else {
             $child_category->update([
                 'name' => $request->name,
                 'slug' => Str::slug($request->name),
                 'category_id' => $request->category_id,
             ]);
-            return redirect()->route('childcategories.index')->with('message', 'Sub Category updated.');
-            ;
+            return redirect()->route('admin.childcategories.index')->with('message', 'Sub Category updated.');
         }
     }
 
@@ -112,6 +115,6 @@ class ChildCategoryController extends Controller
 
         $child_category->delete();
 
-        return redirect()->route('childcategories.index')->with('message', 'Deleted');
+        return redirect()->route('admin.childcategories.index')->with('message', 'Deleted');
     }
 }

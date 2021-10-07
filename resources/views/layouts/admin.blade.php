@@ -51,6 +51,7 @@
                 </x-app-link>
                 <x-app-link href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">Dashboard
                 </x-app-link>
+
                 @role('admin')
                 <x-app-link href="{{ route('admin.categories.index') }}"
                     :active="request()->routeIs('admin.categories.index')">
@@ -77,6 +78,7 @@
                     Cities
                 </x-app-link>
                 @endrole
+                
                 @auth
                     <div @click.away="open = false" class="relative" x-data="{ open: false }">
                         <button @click="open = !open"

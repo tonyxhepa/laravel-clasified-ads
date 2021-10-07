@@ -41,7 +41,7 @@ class CountryController extends Controller
     {
         Country::create($request->validated());
 
-        return redirect()->route('countries.index')->with('message', 'Country Created.');
+        return redirect()->route('admin.countries.index')->with('message', 'Country Created.');
     }
 
 
@@ -67,7 +67,7 @@ class CountryController extends Controller
     {
         $country->update($request->validated());
 
-        return redirect()->route('countries.index')->with('message', 'Country Updated.');
+        return redirect()->route('admin.countries.index')->with('message', 'Country Updated.');
     }
 
     /**
@@ -80,6 +80,6 @@ class CountryController extends Controller
     {
         $country->delete();
 
-        return redirect()->route('countries.index')->with('message', 'Country Deleted.');
+        return redirect()->route('admin.countries.index')->with('message', 'Country Deleted.');
     }
 }
