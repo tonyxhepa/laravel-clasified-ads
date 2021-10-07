@@ -44,7 +44,7 @@ class CityController extends Controller
     {
         City::create($request->validated());
 
-        return redirect()->route('cities.index')->with('message', 'City Created.');
+        return redirect()->route('admin.cities.index')->with('message', 'City Created.');
     }
 
     /**
@@ -71,7 +71,7 @@ class CityController extends Controller
     {
         $city->update($request->validated());
 
-        return redirect()->route('cities.index')->with('message', 'City Updated.');
+        return redirect()->route('admin.cities.index')->with('message', 'City Updated.');
     }
 
     /**
@@ -84,6 +84,6 @@ class CityController extends Controller
     {
         $city->delete();
 
-        return redirect()->route('cities.index')->with('message', 'City Deleted.');
+        return redirect()->route('admin.cities.index')->with('message', 'City Deleted.');
     }
 }

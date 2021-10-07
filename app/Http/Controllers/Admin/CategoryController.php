@@ -48,7 +48,7 @@ class CategoryController extends Controller
                 'image' => $path
             ]);
 
-            return redirect()->route('categories.index')->with('message', 'Category created.');
+            return redirect()->route('admin.categories.index')->with('message', 'Category created.');
             ;
         }
         dd('no image');
@@ -82,14 +82,14 @@ class CategoryController extends Controller
                 'slug' => Str::slug($request->name),
                 'image' => $path
             ]);
-            return redirect()->route('categories.index')->with('message', 'Category updated with image.');
+            return redirect()->route('admin.categories.index')->with('message', 'Category updated with image.');
             ;
         } else {
             $category->update([
                 'name' => $request->name,
                 'slug' => Str::slug($request->name)
             ]);
-            return redirect()->route('categories.index')->with('message', 'Category updated.');
+            return redirect()->route('admin.categories.index')->with('message', 'Category updated.');
             ;
         }
     }
@@ -104,6 +104,6 @@ class CategoryController extends Controller
     {
         $category->delete();
 
-        return redirect()->route('categories.index')->with('message', 'Category Deleted.');
+        return redirect()->route('admin.categories.index')->with('message', 'Category Deleted.');
     }
 }

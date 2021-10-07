@@ -44,7 +44,7 @@ class StateController extends Controller
     {
         State::create($request->validated());
 
-        return redirect()->route('states.index')->with('message', 'State Created.');
+        return redirect()->route('admin.states.index')->with('message', 'State Created.');
     }
 
 
@@ -72,7 +72,7 @@ class StateController extends Controller
     {
         $state->update($request->validated());
 
-        return redirect()->route('states.index')->with('message', 'State Updated.');
+        return redirect()->route('admin.states.index')->with('message', 'State Updated.');
     }
 
     /**
@@ -85,6 +85,6 @@ class StateController extends Controller
     {
         $state->delete();
 
-        return redirect()->route('states.index')->with('message', 'State Deleted.');
+        return redirect()->route('admin.states.index')->with('message', 'State Deleted.');
     }
 }
