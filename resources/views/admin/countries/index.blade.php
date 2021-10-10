@@ -61,14 +61,16 @@
                                                 {{ $country->country_code }}
                                             </div>
                                         </td>
-                                        <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
+                                        <td class="flex px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
+                                            <a href="{{ route('admin.add_state', $country->id) }}"
+                                                class="text-indigo-600 hover:text-indigo-900 px-2">Add State</a>
                                             <a href="{{ route('admin.countries.edit', $country->id) }}"
-                                                class="text-indigo-600 hover:text-indigo-900">Edit</a>
+                                                class="text-indigo-600 hover:text-indigo-900 px-2">Edit</a>
                                             <form method="POST"
                                                 action="{{ route('admin.countries.destroy', $country->id) }}">
                                                 @csrf
                                                 @method('DELETE')
-                                                <a class="text-red-500 hover:text-red-900"
+                                                <a class="text-red-500 hover:text-red-900 px-2"
                                                     href="{{ route('admin.countries.destroy', $country->id) }}"
                                                     onclick="event.preventDefault();
                                                 this.closest('form').submit();">

@@ -62,14 +62,16 @@
                                                     src="{{ Storage::url($category->image) }}">
                                             </div>
                                         </td>
-                                        <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
+                                        <td class="flex px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
+                                            <a href="{{ route('admin.add_sub', $category->id) }}"
+                                                class="text-indigo-600 hover:text-indigo-900 px-2">Add Sub</a>
                                             <a href="{{ route('admin.categories.edit', $category->id) }}"
-                                                class="text-indigo-600 hover:text-indigo-900">Edit</a>
+                                                class="text-indigo-600 hover:text-indigo-900 px-2">Edit</a>
                                             <form method="POST"
                                                 action="{{ route('admin.categories.destroy', $category->id) }}">
                                                 @csrf
                                                 @method('DELETE')
-                                                <a class="text-red-500 hover:text-red-900"
+                                                <a class="text-red-500 hover:text-red-900 px-2"
                                                     href="{{ route('admin.categories.destroy', $category->id) }}"
                                                     onclick="event.preventDefault();
                                                 this.closest('form').submit();">

@@ -23,9 +23,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [FrontendListingController::class, 'welcome'])->name('welcome');
 
 
 
@@ -41,9 +39,15 @@ Route::middleware(['auth:sanctum', 'role:admin'])->prefix('admin')->name('admin.
     Route::get('/', [AdminController::class, 'index'])->name('index');
     Route::resource('listings', AdminListingsController::class);
     Route::resource('categories', CategoryController::class);
+    Route::get('categories/{category}/add-sub', [CategoryController::class, 'add_sub'])->name('add_sub');
+    Route::post('categories/{category}/add-sub', [CategoryController::class, 'add_sub_store'])->name('add_sub.store');
+
     Route::resource('subcategories', SubCategoryController::class);
     Route::resource('childcategories', ChildCategoryController::class);
     Route::resource('countries', CountryController::class);
+    Route::get('countries/{country}/add-state', [CountryController::class, 'add_state'])->name('add_state');
+    Route::post('countries/{country}/add-state', [CountryController::class, 'add_state_store'])->name('add_state.store');
+
     Route::resource('states', StateController::class);
     Route::resource('cities', CityController::class);
 });

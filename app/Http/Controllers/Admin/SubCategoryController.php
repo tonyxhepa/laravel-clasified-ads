@@ -88,7 +88,7 @@ class SubCategoryController extends Controller
                 'category_id' => $request->category_id,
                 'image' => $path
             ]);
-            return redirect()->route('subcategories.index')->with('message', 'Sub category updated with image.');
+            return redirect()->route('admin.subcategories.index')->with('message', 'Sub category updated with image.');
             ;
         } else {
             $sub_category->update([
@@ -96,7 +96,7 @@ class SubCategoryController extends Controller
                 'slug' => Str::slug($request->name),
                 'category_id' => $request->category_id,
             ]);
-            return redirect()->route('subcategories.index')->with('message', 'Sub Category updated.');
+            return redirect()->route('admin.subcategories.index')->with('message', 'Sub Category updated.');
             ;
         }
     }
@@ -113,6 +113,6 @@ class SubCategoryController extends Controller
 
         $sub_category->delete();
 
-        return redirect()->route('subcategories.index')->with('message', 'Sub Category Deleted.');
+        return redirect()->route('admin.subcategories.index')->with('message', 'Sub Category Deleted.');
     }
 }
